@@ -9,14 +9,27 @@ import { PdfMaker } from './pdfmaker';
 export class PdfmakeService {
 
   private maker: PdfMaker
-  private fonts = {
-    Padauk: {
-      normal: 'Padauk-Regular.ttf',
-      bold: 'Padauk-Bold.ttf'
+  private fontsData = {
+    MyanmarText: {
+      normal: 'mmrtext.ttf',
+      bold: 'mmrtextb.ttf'
     },
     Pyidaungsu: {
       normal: 'Pyidaungsu-Regular.ttf',
       bold: 'Pyidaungsu-Bold.ttf'
+    }
+  }
+
+  fonts = {
+    MyanmarText: "MyanmarText",
+    Pyidaungsu: "Pyidaungsu"
+  }
+
+  private styles = {
+    h1: {
+      fontSize: 22,
+      bold: true,
+      lineHeight: 1.2
     }
   }
 
@@ -26,6 +39,14 @@ export class PdfmakeService {
   }
 
   create(document: any) {
-    return this.maker.createPdf(document, {}, this.fonts)
+    return this.maker.createPdf(document, {}, this.fontsData)
+  }
+
+  h1(text: string) {
+    return { text: text, style: this.styles.h1 }
+  }
+
+  p(text: string) {
+    return { text: text, margin: [0, 0, 0, 10] }
   }
 }
