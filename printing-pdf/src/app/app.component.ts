@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PdfmakeService } from './pdfmake.service';
 
 
 @Component({
@@ -9,27 +10,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'printing-pdf';
 
-  pdfMake: any
-
-  async load() {
-    if (!this.pdfMake) {
-      const pdf: any = await import('pdfmake/build/pdfmake')
-      const vfs = await import('pdfmake/build/vfs_fonts')
-      this.pdfMake = pdf.default
-      this.pdfMake.vsf = vfs.pdfMake.vfs
-    }
-  }
+  constructor(private pdfService: PdfmakeService) { }
 
   async simple() {
 
-    await this.load()
-
     let doc = {
-      header: 'Hello PDF',
-      content: 'This is Content of PDF'
+      content: 'pdfmake library က PDF ကို Generate လုပ်တဲ့ အခါမှာ Virtual File System ထဲက Embedded Font တွေကို အသုံးပြုပါတယ်။ Default အတိုင်းဆိုရင် Roboto Font ကို အသုံးပြုပါတယ်။ Roboto ထဲမှာ မြန်မာစာလုံးတွေအတွက် Glaphyte တွေမပါပါဘူး။ အဲ့ဒီတော့ Default အတိုင်းဆိုရင် မြန်မာစာက ပေါ်မလာပဲ လေးထောင့်တုံးလေးတွေဖြစ်နေတယ်။',
+      defaultStyle: {
+        font: 'Pyidaungsu'
+      }
     }
 
-    this.pdfMake.createPdf(doc).open()
+    this.pdfService.create(doc).open()
   }
 
   list() {

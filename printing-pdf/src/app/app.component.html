@@ -1,18 +1,16 @@
-<div class="container">
+<div class="container mt-4">
 
-  <h3 class="mt-4">Printing Demo</h3>
+  <div class="jumbotron">
+    <h3>Printing Demo</h3>
 
-  <ul>
-    <li>
-      <a (click)="simple()">Simple PDF</a>
-    </li>
-    <li>
-      <a (click)="list()">Print List</a>
-    </li>
-    <li>
-      <a (click)="table()">Print Table</a>
-    </li>
-  </ul>
+    <div class="mt-4">
+      <a (click)="simple()" class="btn btn-primary mr-2">Simple PDF</a>
+      <a (click)="table()" class="btn btn-primary mr-2">Data Table</a>
+      <a (click)="list()" class="btn btn-primary mr-2">Data List</a>
+
+    </div>
+
+  </div>
 
   <router-outlet></router-outlet>
 </div>
