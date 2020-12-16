@@ -19,7 +19,11 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "@types/pdfmake": "^0.1.16",
     "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
+    "pdfmake": "^0.1.68",
+    "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
