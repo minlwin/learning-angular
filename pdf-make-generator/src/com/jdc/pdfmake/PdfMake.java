@@ -65,7 +65,7 @@ public class PdfMake {
 		lines.add("};");
 		
 		if(!lines.isEmpty()) {
-			Files.write(Paths.get("vfs_font.js"), lines, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
+			Files.write(Paths.get("vfs_fonts.js"), lines, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
 		}
 	}
 
