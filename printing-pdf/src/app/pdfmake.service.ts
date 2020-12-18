@@ -10,25 +10,26 @@ export class PdfmakeService {
 
   private maker: PdfMaker
   private fontsData = {
-    MyanmarText: {
-      normal: 'mmrtext.ttf',
-      bold: 'mmrtextb.ttf'
+    Padauk: {
+      normal: 'Padauk-Regular.ttf',
+      bold: 'Padauk-Bold.ttf'
     },
     Pyidaungsu: {
       normal: 'Pyidaungsu-Regular.ttf',
       bold: 'Pyidaungsu-Bold.ttf'
+    },
+    NamKhoneUnicode: {
+      normal: 'NamKhoneUnicode.ttf',
+      bold: 'NamKhoneUnicode.ttf'
+    },
+    Roboto: {
+      normal: 'Roboto-Regular.ttf'
     }
-  }
-
-  fonts = {
-    MyanmarText: "MyanmarText",
-    Pyidaungsu: "Pyidaungsu"
   }
 
   private styles = {
     h1: {
       fontSize: 22,
-      bold: true,
       lineHeight: 1.2
     }
   }

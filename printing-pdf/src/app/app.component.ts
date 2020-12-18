@@ -37,7 +37,7 @@ export class AppComponent {
         this.pdfService.p('ပြီးသွားရင် ဘယ်လိုလုပ်ရမယ်ဆိုတာကို Git Hub Repository ပေါ်တင်ပြီး ရှယ်ပေးလိုက်ပါမယ်ခင်ဗျာ။')
       ],
       defaultStyle: {
-        font: this.pdfService.fonts.Pyidaungsu
+        font: "Pyidaungsu"
       }
     }
 
@@ -86,7 +86,7 @@ export class AppComponent {
         }
       ],
       defaultStyle: {
-        font: this.pdfService.fonts.Pyidaungsu
+        font: 'Roboto'
       }
     };
     this.pdfService.create(doc).open()
