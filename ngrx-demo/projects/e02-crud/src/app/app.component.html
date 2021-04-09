@@ -1,0 +1,41 @@
+<div class="container pt-4">
+  <h4>NgRx Store CRUD Demo</h4>
+
+  <div class="d-flex justify-content-end mt-4 mb-4">
+    <button (click)="addNew()" class="btn btn-primary">
+      <i class="fa fa-plus"></i> Add New
+    </button>
+  </div>
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of list$ | async">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.email}}</td>
+        <td>
+          <a (click)="edit(item)" class="btn-link">
+            <i class="fa fa-pencil"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div id="editDialog" class="modal fade">
+    <app-edit-student [data]="target$ | async" (onSave)="save($event)"></app-edit-student>
+  </div>
+</div>
