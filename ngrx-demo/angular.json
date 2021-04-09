@@ -1,0 +1,158 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "8cd0f9e1-e03a-40a2-9156-f86d869df95e"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "e01-hello": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/e01-hello",
+      "sourceRoot": "projects/e01-hello/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e01-hello",
+            "index": "projects/e01-hello/src/index.html",
+            "main": "projects/e01-hello/src/main.ts",
+            "polyfills": "projects/e01-hello/src/polyfills.ts",
+            "tsConfig": "projects/e01-hello/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/e01-hello/src/favicon.ico",
+              "projects/e01-hello/src/assets"
+            ],
+            "styles": [
+              "projects/e01-hello/src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/e01-hello/src/environments/environment.ts",
+                  "with": "projects/e01-hello/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "e01-hello:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "e01-hello:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "e01-hello:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/e01-hello/src/test.ts",
+            "polyfills": "projects/e01-hello/src/polyfills.ts",
+            "tsConfig": "projects/e01-hello/tsconfig.spec.json",
+            "karmaConfig": "projects/e01-hello/karma.conf.js",
+            "assets": [
+              "projects/e01-hello/src/favicon.ico",
+              "projects/e01-hello/src/assets"
+            ],
+            "styles": [
+              "projects/e01-hello/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/e01-hello/tsconfig.app.json",
+              "projects/e01-hello/tsconfig.spec.json",
+              "projects/e01-hello/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/e01-hello/e2e/protractor.conf.js",
+            "devServerTarget": "e01-hello:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "e01-hello:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "e01-hello"
+}

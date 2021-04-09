@@ -1,0 +1,43 @@
+<div class="container pt-4">
+  <h3 class="text-center">Store Counter</h3>
+
+  <div class="row mt-4">
+    <div class="col"></div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center">
+            {{counter.count$ | async}}
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col"></div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col"></div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <button (click)="counter.increase()" class="btn btn-primary w-100 h-100">
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
+        <div class="col">
+          <button (click)="counter.decrease()" class="btn btn-secondary w-100 h-100">
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <div class="col">
+          <button (click)="counter.reset()" class="btn btn-info w-100 h-100">
+            <i class="fa fa-recycle"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
