@@ -1,0 +1,46 @@
+<h3>Districts</h3>
+
+<form [formGroup]="form" class="form-inline mt-4 mb-4">
+    <div class="form-group mr-2">
+        <select formControlName="region" class="form-control">
+            <option value="">All Regions</option>
+            <option *ngFor="let item of regions$ | async" [value]="item">{{item}}</option>
+        </select>
+    </div>
+    <div class="form-group mr-2">
+        <select formControlName="state" class="form-control">
+            <option value="">All States</option>
+            <option *ngFor="let item of states$ | async" [value]="item.id">{{item.name}}</option>
+        </select>
+    </div>
+    <div class="form-group mr-2">
+        <input formControlName="name" type="text" class="form-control" placeholder="Search Name">
+    </div>
+
+    <button (click)="search()" class="btn btn-outline-secondary">
+        <i class="fa fa-search"></i> Search
+    </button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Burmese Name</th>
+            <th>State</th>
+            <th>Region</th>
+            <th>Capital</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of districts$ | async">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.mmName}}</td>
+            <td>{{item.state.mmName}}</td>
+            <td>{{item.state.region}}</td>
+            <td>{{item.capital}}</td>
+        </tr>
+    </tbody>
+</table>
