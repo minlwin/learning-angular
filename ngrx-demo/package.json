@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~11.2.8",
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
+    "@ngrx/effects": "^11.1.0",
     "@ngrx/store": "^11.1.0",
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",

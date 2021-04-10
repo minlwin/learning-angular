@@ -1,0 +1,56 @@
+<div class="container pt-4">
+
+  <h3 class="mb-4">Locations</h3>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">Location</div>
+        <div class="card-body">
+
+          <div class="form-group">
+            <label>Region</label>
+            <select #region (change)="changeRegion(region.value)" class="form-control">
+              <option *ngFor="let item of regions$ | async" [value]="item">{{item}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>State</label>
+            <select #state (change)="changeState(state.value)" class="form-control">
+              <option *ngFor="let item of states" [value]="item.id">{{item.mmName}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>District</label>
+            <select #district (change)="changeDistrict(district.value)" class="form-control">
+              <option *ngFor="let item of districts" [value]="item.id">{{item.mmName}}</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item bg-secondary text-white">Townships</li>
+        <li *ngFor="let item of townships" (click)="addToTargets(item)" class="list-group-item">
+          {{item.mmName}} <span class="btn-link pull-right"><i class="fa fa-plus"></i></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item active">Target Townships</li>
+        <li *ngFor="let item of targets$ | async" (click)="removeFromTarget(item)" class="list-group-item">
+          {{item.mmName}} <span class="btn-link pull-right"><i class="fa fa-close"></i></span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
