@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { State } from "projects/e03-location-effect/src/app/states/location.model";
 import { AbstractService } from "./abstract.service";
+import { State } from "./state.service";
 
 export interface District {
     readonly id: number

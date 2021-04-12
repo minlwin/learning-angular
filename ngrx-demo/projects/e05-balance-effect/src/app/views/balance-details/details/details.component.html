@@ -1,0 +1,19 @@
+<h5 class="mt-4 mb-2">Details Information</h5>
+
+<table class="table striped">
+    <thead>
+        <tr>
+            <th>Reason</th>
+            <th>Remark</th>
+            <th class="text-right">Amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of list">
+            <td>{{item.reason}}</td>
+            <td>{{item.details}}</td>
+            <td class="text-right">{{item.amount | number}} MMK</td>
+        </tr>
+    </tbody>
+</table>

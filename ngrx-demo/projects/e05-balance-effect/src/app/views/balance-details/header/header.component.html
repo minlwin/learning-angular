@@ -1,0 +1,24 @@
+<h3>{{balance?.type}} Details</h3>
+
+<div class="form-row mt-4 mb-4">
+    <div class="col form-group">
+        <label>Date</label>
+        <input type="text" readonly [value]="balance?.useDate" class="form-control">
+    </div>
+
+    <div class="col form-group">
+        <label>Category</label>
+        <input type="text" readonly [value]="balance?.category | category" class="form-control">
+    </div>
+
+    <div class="col form-group">
+        <label>Total</label>
+        <input type="text" readonly [value]="balance?.total | number" class="form-control">
+    </div>
+
+    <div class="col form-group">
+        <a [routerLink]="['edit']" class="btn btn-outline-primary" style="margin-top: 2em;">
+            <i class="fa fa-pencil"></i> Edit
+        </a>
+    </div>
+</div>

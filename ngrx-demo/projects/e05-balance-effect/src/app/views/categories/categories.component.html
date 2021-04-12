@@ -1,0 +1,27 @@
+<h3>Category Management</h3>
+
+<div class="mt-4 mb-4 d-flex justify-content-end">
+    <button (click)="addNew()" class="btn btn-outline-primary">
+        <i class="fa fa-plus"></i> Add New
+    </button>
+</div>
+
+<div class="row">
+    <div *ngFor="let item of list$ | async" class="col-4 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <span>{{item.type}}</span>
+                <span (click)="edit(item)" class="btn-link">
+                    <i class="fa fa-pencil"></i>
+                </span>
+            </div>
+            <div class="card-body">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editDialog" class="modal fade">
+    <app-category-edit [item]="target" (onSave)="save($event)"></app-category-edit>
+</div>

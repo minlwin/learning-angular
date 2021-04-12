@@ -1,0 +1,30 @@
+<form [formGroup]="form" class="form-inline mb-4 mt-4">
+    <!-- Type -->
+    <select *ngIf="!type" formControlName="type" class="form-control mr-2">
+        <option value="">All Types</option>
+        <option value="Income">Income</option>
+        <option value="Expense">Expense</option>
+    </select>
+
+    <!-- Category -->
+    <select formControlName="category" class="form-control mr-2">
+        <option value="">All Categories</option>
+        <option *ngFor="let item of categories$ | async" [value]="item.id">{{item.name}}</option>
+    </select>
+
+    <!-- From -->
+    <input formControlName="from" type="date" id="" class="form-control mr-2">
+
+    <!-- To -->
+    <input formControlName="to" type="date" id="" class="form-control mr-2">
+
+    <!-- Search Button -->
+    <button (click)="search()" class="btn btn-outline-primary">
+        <i class="fa fa-search"></i> Search
+    </button>
+
+    <!-- Add New Button -->
+    <a *ngIf="type" [routerLink]="['/balance', type, 0, 'edit']" class="btn btn-outline-danger ml-auto">
+        <i class="fa fa-plus"></i> Add New
+    </a>
+</form>

@@ -598,6 +598,153 @@
           }
         }
       }
+    },
+    "e05-balance-effect": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/e05-balance-effect",
+      "sourceRoot": "projects/e05-balance-effect/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e05-balance-effect",
+            "index": "projects/e05-balance-effect/src/index.html",
+            "main": "projects/e05-balance-effect/src/main.ts",
+            "polyfills": "projects/e05-balance-effect/src/polyfills.ts",
+            "tsConfig": "projects/e05-balance-effect/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/e05-balance-effect/src/favicon.ico",
+              "projects/e05-balance-effect/src/assets"
+            ],
+            "styles": [
+              "projects/e05-balance-effect/src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/e05-balance-effect/src/environments/environment.ts",
+                  "with": "projects/e05-balance-effect/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "e05-balance-effect:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "e05-balance-effect:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "e05-balance-effect:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/e05-balance-effect/src/test.ts",
+            "polyfills": "projects/e05-balance-effect/src/polyfills.ts",
+            "tsConfig": "projects/e05-balance-effect/tsconfig.spec.json",
+            "karmaConfig": "projects/e05-balance-effect/karma.conf.js",
+            "assets": [
+              "projects/e05-balance-effect/src/favicon.ico",
+              "projects/e05-balance-effect/src/assets"
+            ],
+            "styles": [
+              "projects/e05-balance-effect/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/e05-balance-effect/tsconfig.app.json",
+              "projects/e05-balance-effect/tsconfig.spec.json",
+              "projects/e05-balance-effect/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/e05-balance-effect/e2e/protractor.conf.js",
+            "devServerTarget": "e05-balance-effect:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "e05-balance-effect:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "e01-hello"

@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DistrictComponent } from './district/district.component';
@@ -13,7 +15,6 @@ import { DistrictsEffects } from './utils/effects/districts.effects';
 import { StatesEffects } from './utils/effects/states.effects';
 import { TownshipsEffects } from './utils/effects/townships.effects';
 import { reduceAppState } from './utils/states/location.reducers';
-
 
 @NgModule({
   declarations: [
@@ -30,7 +31,12 @@ import { reduceAppState } from './utils/states/location.reducers';
     StoreModule.forRoot({ locations: reduceAppState }),
     EffectsModule.forRoot([
       StatesEffects, DistrictsEffects, TownshipsEffects
-    ])
+    ]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

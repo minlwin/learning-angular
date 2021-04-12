@@ -1,0 +1,37 @@
+<h3>{{type}} Management</h3>
+
+<app-search-bar (onSearch)="search($event)" [type]="type"></app-search-bar>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Reason</th>
+            <th>Remark</th>
+            <th class="text-right">Amount</th>
+            <th class="text-right">Total</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of list$ | async">
+            <td>
+                <a [routerLink]="['/balance', item.balance?.type, item.balance?.id]" class="btn-link">
+                    {{item.balance?.useDate}}
+                </a>
+            </td>
+            <td>{{item.balance?.category | category}}</td>
+            <td>{{item.reason}}</td>
+            <td>{{item.details}}</td>
+            <td class="text-right">{{item.amount | number}}</td>
+            <td class="text-right">{{item.total | number}}</td>
+            <td>
+                <a [routerLink]="['/balance', item.balance?.type, item.balance?.id, 'edit']" class="btn-link">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <h5 class="modal-header">Edit Category</h5>
+
+        <form [formGroup]="form" class="modal-body">
+
+            <div class="form-group">
+                <label>Balance Type</label>
+                <select formControlName="type" class="form-control">
+                    <option value="">Select Type</option>
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Enter Name" formControlName="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-outline-info mr-2" data-dismiss="modal">
+                    <i class="fa fa-close"></i> Close
+                </button>
+
+                <button [disabled]="form.invalid" (click)="save()" class="btn btn-outline-primary">
+                    <i class="fa fa-save"></i> Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

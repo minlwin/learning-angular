@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <span class="navbar-brand">
+      <i class="fa fa-home"></i> Balance
+    </span>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a [routerLink]="['/category']" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-tags"></i> Category
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a [routerLink]="['/balance/Income']" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-download"></i> Incomes
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a [routerLink]="['/balance/Expense']" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-upload"></i> Expenses
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a [routerLink]="['/report']" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-bar-chart"></i> Balance Report
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container pt-4">
+  <router-outlet></router-outlet>
+</div>
