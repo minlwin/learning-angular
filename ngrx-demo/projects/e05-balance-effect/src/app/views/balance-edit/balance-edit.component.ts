@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SubSink } from 'subsink';
 import { BalanceDetails } from '../../services/balance.service';
@@ -23,9 +23,13 @@ export class BalanceEditComponent implements OnInit, OnDestroy {
   constructor(
     private builder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private sub: SubSink,
     private store: Store<StoreConfig>
   ) {
+
+    // Clear State
+    store.dispatch(Actions.ACTION_MODEL_RESET())
 
     // Build From Group Object
     this.form = builder.group({
@@ -42,8 +46,10 @@ export class BalanceEditComponent implements OnInit, OnDestroy {
     // Calculate Total When Details List Changes
     this.detailsForm.valueChanges.subscribe(
       data => {
-        const total = this.detailsForm.controls.map(a => a.value.amount).reduce((a, b) => a + b)
-        this.balanceForm.patchValue({ total: total })
+        if (this.detailsForm.length) {
+          const total = this.detailsForm.controls.map(a => a.value.amount).reduce((a, b) => a + b)
+          this.balanceForm.patchValue({ total: total })
+        }
       }
     )
   }
@@ -69,7 +75,7 @@ export class BalanceEditComponent implements OnInit, OnDestroy {
           let group = this.getControl()
           group.patchValue(a)
           return group
-        }).forEach(a => this.detailsForm.controls.push(a))
+        }).forEach(a => this.detailsForm.push(a))
       }
     })
 
@@ -80,6 +86,13 @@ export class BalanceEditComponent implements OnInit, OnDestroy {
         this.store.dispatch(Actions.ACTION_MODEL_LOAD({ id: id }))
       } else {
         this.balanceForm.patchValue({ type: params['type'] })
+      }
+    })
+
+    // Navigate after saved
+    this.sub.sink = this.store.select(Selectors.SELECT_MODEL_SAVED).subscribe(data => {
+      if (data) {
+        this.router.navigate(['/balance', data.type, data.id])
       }
     })
   }

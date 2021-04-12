@@ -2,11 +2,12 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, mergeMap } from "rxjs/operators";
 import { Balance, BalanceDetails, BalanceService } from "../../services/balance.service";
-import { ACTION_MODEL_LOAD, ACTION_MODEL_LOAD_SUCCESS, ACTION_MODEL_RESET, ACTION_MODEL_SAVE } from "../states/model/model.actions";
+import { ACTION_MODEL_LOAD, ACTION_MODEL_LOAD_SUCCESS, ACTION_MODEL_SAVE, ACTION_MODEL_SAVE_SUCCESS } from "../states/model/model.actions";
 
 export interface BalanceModel {
     readonly balance: Balance
     readonly details: ReadonlyArray<BalanceDetails>
+    readonly saved?: Balance
 }
 
 @Injectable()
@@ -17,7 +18,7 @@ export class ModelEffects {
     saveBalanceModel$ = createEffect(() => this.actions$.pipe(
         ofType(ACTION_MODEL_SAVE),
         mergeMap(action => this.saveModel(action.payload).pipe(
-            map(_ => ({ type: ACTION_MODEL_RESET.type }))
+            map(result => ({ type: ACTION_MODEL_SAVE_SUCCESS.type, payload: result }))
         ))
     ))
 
