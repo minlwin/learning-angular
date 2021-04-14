@@ -1,0 +1,16 @@
+<h3 class="d-flex justify-content-between">
+    Simple Image File
+    <button (click)="openFile()" class="btn btn-outline-primary">
+        <i class="fa fa-folder-open"></i> Read File
+    </button>
+</h3>
+
+<div *ngIf="image" class="card">
+    <div class="card-header">Loaded Image</div>
+
+    <div class="card-body">
+        <img [src]="image" class="img-fluid">
+    </div>
+</div>
+
+<input (change)="readFile($event)" type="file" id="fileInput" class="d-none">

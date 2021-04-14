@@ -1,0 +1,40 @@
+<div id="main-app">
+  <div id="side-bar">
+    <div class="header">Using Files</div>
+
+    <ul>
+      <li>
+        <a [routerLink]="['/simple']" routerLinkActive="active">
+          <i class="fa fa-file"></i> Simple File
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/reactive']" routerLinkActive="active">
+          <i class="fa fa-file-o"></i> Reactive File Reader
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/image-simple']" routerLinkActive="active">
+          <i class="fa fa-image"></i> Simple Image
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/image-multi']" routerLinkActive="active">
+          <i class="fa fa-folder-open"></i> Multiple Images
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/image-crop']" routerLinkActive="active">
+          <i class="fa fa-crop"></i> Image Crop
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container-fluid pt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

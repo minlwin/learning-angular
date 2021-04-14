@@ -1,0 +1,44 @@
+#main-app {
+    display: flex;
+    align-content: stretch;
+}
+
+#side-bar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    color: #fff;
+    background-color: #3949ab;
+}
+
+#side-bar > .header {
+    padding: 12px 20px;
+    font-size: 2em;
+}
+
+#side-bar > ul {
+    padding: 10px 0;
+}
+
+#side-bar > ul > li a {
+    display: block;
+    padding: 10px 20px;
+}
+
+#side-bar > ul > li a i {
+    margin-right: 10px;
+}
+
+#side-bar > ul > li a:hover {
+    background-color: #00227b;
+}
+
+#side-bar > ul > li a.active {
+    background-color: #6f74dd;
+}
+
+
+#side-bar a, #side-bar a:hover, #side-bar a:active {
+    text-decoration: none;
+    color: #fff;
+}

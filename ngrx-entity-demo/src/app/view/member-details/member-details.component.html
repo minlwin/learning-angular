@@ -1,0 +1,46 @@
+<h3>Entity CRUD Demo : Member Details</h3>
+
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>ID</label>
+                    <span class="form-control">{{member?.id}}</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <span class="form-control">{{member?.name}}</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Role</label>
+                    <span class="form-control">{{member?.role}}</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <span class="form-control">{{member?.phone}}</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <span class="form-control">{{member?.email}}</span>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a [routerLink]="['/members']" class="btn btn-primary mr-2">
+                    <i class="fa fa-list"></i> Member List
+                </a>
+
+                <a [routerLink]="['/members/edit', member?.id]" class="btn btn-danger">
+                    <i class="fa fa-pencil"></i> Edit Member
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

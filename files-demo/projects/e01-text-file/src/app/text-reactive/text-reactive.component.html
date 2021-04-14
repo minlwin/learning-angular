@@ -1,0 +1,16 @@
+<h3 class="d-flex justify-content-between">
+    Reactive Text File Reader
+    <button (click)="openFile()" class="btn btn-outline-primary">
+        <i class="fa fa-folder-open"></i> Read File
+    </button>
+</h3>
+
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let array of list">
+            <td *ngFor="let item of array">{{item}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<input (change)="readFile($event)" accept=".txt" type="file" id="fileInput" class="d-none">

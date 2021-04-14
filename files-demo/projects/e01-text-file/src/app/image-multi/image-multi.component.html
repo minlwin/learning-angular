@@ -1,0 +1,20 @@
+<h3 class="d-flex justify-content-between">
+    Multiple Image File
+    <button (click)="openFile()" class="btn btn-outline-primary">
+        <i class="fa fa-folder-open"></i> Read File
+    </button>
+</h3>
+
+<div *ngIf="array" class="card">
+    <div class="card-header">Loaded Images</div>
+
+    <div class="card-body">
+        <div class="row">
+            <div *ngFor="let item of array" class="col-4 mb-4">
+                <img [src]="item" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<input (change)="readFile($event)" type="file" multiple id="fileInput" class="d-none">

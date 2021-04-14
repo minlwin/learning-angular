@@ -1,0 +1,33 @@
+<h3 class="d-flex justify-content-between mb-4">
+    Image Cropping
+    <button (click)="openFile()" class="btn btn-outline-primary">
+        <i class="fa fa-folder-open-o"></i> Load
+    </button>
+</h3>
+
+<input id="fileInput" (change)="loadFile($event)" type="file" class="d-none">
+
+<div *ngIf="imageSrc" class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                Original Image
+                <span (click)="cropImage()" class="btn-link">
+                    <i class="fa fa-crop"></i>
+                </span>
+            </div>
+            <div class=" card-body">
+                <image-cropper [src]="imageSrc" (onCrop)="preview($event)"></image-cropper>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="cropSrc" class="col-6">
+        <div class="card">
+            <div class="card-header">Preview Image</div>
+            <div class="card-body">
+                <img [src]="cropSrc" alt="Cropped Result" class="img-fluid w-100">
+            </div>
+        </div>
+    </div>
+</div>
