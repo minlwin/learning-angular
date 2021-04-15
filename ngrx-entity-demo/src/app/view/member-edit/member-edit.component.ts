@@ -35,17 +35,9 @@ export class MemberEditComponent implements OnDestroy {
       email: ['', Validators.required]
     })
 
-    store.dispatch(Actions.reSetSelected())
-
     this.sub = store.select(Selectors.SELECTED_MEMBER).subscribe(member => {
       if (member) {
         this.form.patchValue(member)
-      }
-    })
-
-    route.params.subscribe(params => {
-      if (params['id'] != '0') {
-        store.dispatch(Actions.setSelected({ id: Number(params['id']) }))
       }
     })
   }

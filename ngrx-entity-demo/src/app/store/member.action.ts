@@ -7,8 +7,5 @@ export const update = createAction('[Member] update', props<{ update: Update<Mem
 export const remove = createAction('[Member] remove', props<{ id: number }>())
 export const getAll = createAction('[Member] getAll')
 
-export const setSelected = createAction('[Member] setSelected', props<{ id: number }>())
-export const reSetSelected = createAction('[Member] reSetSelected')
-
 export const setFilter = createAction('[Member] setFilter', props<{ filter: MemberFilter }>())
 export const reSetFilter = createAction('[Member] reSetFilter')

@@ -1,7 +1,6 @@
 import { EntityState } from "@ngrx/entity"
 
 export type Role = 'Admin' | 'Editor' | 'Member'
-export const ROLES: ReadonlyArray<Role> = ['Admin', 'Editor', 'Member']
 
 export interface Member {
     id: number
@@ -11,13 +10,15 @@ export interface Member {
     role: Role
 }
 
+export const ROLES: ReadonlyArray<Role> = ['Admin', 'Editor', 'Member']
+
 export interface MemberFilter {
     role: Role | ''
     name: string
 }
 
 export interface MemberState extends EntityState<Member> {
-    selectedMemberId: number | null
+    // Extra Properties for Member State
     filter: MemberFilter
 }
 
