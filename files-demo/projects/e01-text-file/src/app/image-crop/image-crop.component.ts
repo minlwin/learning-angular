@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ReactiveImageReader } from '../image-simple/reactive-image.reader';
 
@@ -12,14 +13,14 @@ declare var $: any
 })
 export class ImageCropComponent implements OnDestroy {
 
-  constructor(private reader: ReactiveImageReader) { }
+  constructor(private reader: ReactiveImageReader, private sanitizer: DomSanitizer) { }
 
   ngOnDestroy() {
     this.sub?.unsubscribe()
   }
 
-  imageSrc?: string
-  cropSrc?: string
+  imageSrc?: any
+  cropSrc?: any
 
   private sub?: Subscription
 
@@ -34,7 +35,7 @@ export class ImageCropComponent implements OnDestroy {
   }
 
   preview(image: string) {
-    this.cropSrc = image
+    this.cropSrc = image ? this.sanitizer.bypassSecurityTrustResourceUrl(image) : ''
   }
 
   cropImage() {

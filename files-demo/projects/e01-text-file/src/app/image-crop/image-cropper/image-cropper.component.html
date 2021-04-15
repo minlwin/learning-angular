@@ -1,3 +1,3 @@
-<div [style.height.px]="imageHeight || 480">
-    <img #image class="img-fluid w-100" [src]="imageSrc" alt="">
+<div [style.height.px]="imageHeight || 450">
+    <img [src]="imageSrc" (load)="loadImage($event)" class="img-fluid w-100" alt="">
 </div>
