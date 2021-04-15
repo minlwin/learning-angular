@@ -8,7 +8,7 @@ const memberState = createFeatureSelector<MemberState>('members')
 export const SELECTED_MEMBER = createSelector(
     memberState,
     router.selectRouteParams,
-    (state, { id }) => id ? state.entities[id] : null)
+    (state, params) => params['id'] ? state.entities[params['id']] : null)
 
 export const FILTER = createSelector(
     memberState,

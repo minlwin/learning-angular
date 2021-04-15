@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,8 @@ import { MemberListComponent } from './view/member-list/member-list.component';
     AppRoutingModule,
     ReactiveFormsModule,
     StoreModule.forRoot({
-      members: reduceMember
+      members: reduceMember,
+      router: routerReducer
     }),
     StoreRouterConnectingModule.forRoot()
   ],
