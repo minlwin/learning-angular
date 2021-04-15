@@ -39,7 +39,6 @@ export class ImageCropComponent implements OnDestroy {
   }
 
   cropImage() {
-    console.log("Crop : " + this.cropSrc)
     this.imageSrc = this.cropSrc
   }
 
