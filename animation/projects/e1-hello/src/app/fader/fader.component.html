@@ -1,0 +1,22 @@
+<h3>Fade In</h3>
+
+<div class="mt-4 mb-4">
+    <button [class.btn-primary]="slide == 1" (click)="slide = 1" class="btn mr-2">Slide One</button>
+    <button [class.btn-success]="slide == 2" (click)="slide = 2" class="btn mr-2">Slide Two</button>
+    <button [class.btn-danger]="slide == 3" (click)="slide = 3" class="btn mr-2">Slide Three</button>
+</div>
+
+<div [ngSwitch]="slide" [@fadeIn]="slide" style="height: 200px">
+    <div *ngSwitchCase="1" class="bg-primary text-white d-flex justify-content-center align-items-center"
+        style="height: 200px">
+        <h1 class="text-center">This is Slide 1</h1>
+    </div>
+    <div *ngSwitchCase="2" class="bg-success text-white d-flex justify-content-center align-items-center"
+        style="height: 200px">
+        <h1 class="text-center">This is Slide 2</h1>
+    </div>
+    <div *ngSwitchCase="3" class="bg-danger text-white d-flex justify-content-center align-items-center"
+        style="height: 200px">
+        <h1 class="text-center">This is Slide 3</h1>
+    </div>
+</div>

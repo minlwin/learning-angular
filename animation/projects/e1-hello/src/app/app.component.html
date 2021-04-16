@@ -1,0 +1,34 @@
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-4 pr-4">
+
+      <h3>Angular Animations</h3>
+
+      <ul class="nav flex-column nav-pills mt-4">
+
+        <li class="nav-item">
+          <a [routerLink]="['/hello']" routerLinkActive="active" class="nav-link">Hello Animation</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/slider']" routerLinkActive="active" class="nav-link">Slide In Components</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/fadein']" routerLinkActive="active" class="nav-link">Fade In Components</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/list']" routerLinkActive="active" class="nav-link">List Animation</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<h3 class="mb-4">Hello Animation</h3>
+
+<button (click)="switchState()" style="width: 200px;" class="btn btn-primary">
+    <span @btnAnimation>
+        <i [class.fa-arrow-down]="!isOpen" [class.fa-arrow-up]="isOpen" class="fa"></i> {{isOpen ? 'Close' : 'Open'}}
+    </span>
+</button>
+
+<div [@openClose]="isOpen ? 'open' : 'close'" class="card mt-4" style="height: 200px;">
+    <div class="card-body">
+        Hello Animation
+    </div>
+</div>

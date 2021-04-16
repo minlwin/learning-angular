@@ -1,0 +1,13 @@
+<h3 class="mb-4">List Animation</h3>
+
+<button (click)="switchState()" style="width: 200px;" class="btn btn-primary">
+    <span @btnAnimation>
+        <i [class.fa-trash]="!isEmpty" [class.fa-plus]="isEmpty" class="fa"></i> {{isEmpty ? 'Add' : 'Clear'}}
+    </span>
+</button>
+
+<div [@listAnimation]="list.length" class="mt-4">
+    <div *ngFor="let item of list" class="card mb-2 bg-primary text-white">
+        <div class="card-body">{{item}}</div>
+    </div>
+</div>

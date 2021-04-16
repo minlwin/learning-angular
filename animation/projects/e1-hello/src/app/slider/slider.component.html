@@ -1,0 +1,22 @@
+<h3>Slider</h3>
+
+<div class="mt-4 mb-4">
+    <button (click)="slide = 1" class="btn mr-2" [class.btn-primary]="slide == 1">Slide One</button>
+    <button (click)="slide = 2" class="btn mr-2" [class.btn-success]="slide == 2">Slide Two</button>
+    <button (click)="slide = 3" class="btn mr-2" [class.btn-danger]="slide == 3">Slide Three</button>
+</div>
+
+<div [ngSwitch]="slide" [@slideIn]="slide" style="height: 200px">
+    <div *ngSwitchCase="1" class="bg-primary text-white d-flex justify-content-center align-items-center"
+        style="height: 200px; position: relative;">
+        <h1 class="text-center">This is Slide 1</h1>
+    </div>
+    <div *ngSwitchCase="2" class="bg-success text-white d-flex justify-content-center align-items-center"
+        style="height: 200px; position: relative;">
+        <h1 class="text-center">This is Slide 2</h1>
+    </div>
+    <div *ngSwitchCase="3" class="bg-danger text-white d-flex justify-content-center align-items-center"
+        style="height: 200px; position: relative;">
+        <h1 class="text-center">This is Slide 3</h1>
+    </div>
+</div>
