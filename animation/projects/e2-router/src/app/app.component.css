@@ -1,0 +1,40 @@
+#topBar {
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1px 2px #cfcfcf;
+}
+
+#topBar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#topBar i {
+    margin-right: 0.5em;
+}
+
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 18px 24px;
+    color: #707070;
+    font-size: 16px;
+}
+
+.menu a:hover,
+.menu a.active:hover  {
+    background-color: #9e9e9e;
+    color: #fff;
+}
+
+.menu a.active {
+    font-weight: bold;
+    color: #1b1b1b;
+}

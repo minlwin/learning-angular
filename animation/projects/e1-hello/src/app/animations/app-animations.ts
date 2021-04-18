@@ -1,7 +1,7 @@
 import { animate, keyframes, query, stagger, state, style, transition, trigger } from "@angular/animations";
 
 export const btnAnimation = trigger('btnAnimation', [
-    transition('* <=> *', [
+    transition('* => *', [
         animate('0.6s', keyframes([
             style({ opacity: 0, offset: 0 }),
             style({ opacity: 0.5, offset: 0.5 }),
@@ -11,7 +11,7 @@ export const btnAnimation = trigger('btnAnimation', [
 ])
 
 export const listAnimation = trigger('listAnimation', [
-    transition('* <=> *', [
+    transition('* => *', [
         query(':enter', [
             style({ opacity: 0 }),
             stagger(200, animate('600ms ease-in', style({ opacity: 1 })))

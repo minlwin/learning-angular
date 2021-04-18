@@ -152,6 +152,153 @@
           }
         }
       }
+    },
+    "e2-router": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/e2-router",
+      "sourceRoot": "projects/e2-router/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/e2-router",
+            "index": "projects/e2-router/src/index.html",
+            "main": "projects/e2-router/src/main.ts",
+            "polyfills": "projects/e2-router/src/polyfills.ts",
+            "tsConfig": "projects/e2-router/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/e2-router/src/favicon.ico",
+              "projects/e2-router/src/assets"
+            ],
+            "styles": [
+              "projects/e2-router/src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/e2-router/src/environments/environment.ts",
+                  "with": "projects/e2-router/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "e2-router:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "e2-router:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "e2-router:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/e2-router/src/test.ts",
+            "polyfills": "projects/e2-router/src/polyfills.ts",
+            "tsConfig": "projects/e2-router/tsconfig.spec.json",
+            "karmaConfig": "projects/e2-router/karma.conf.js",
+            "assets": [
+              "projects/e2-router/src/favicon.ico",
+              "projects/e2-router/src/assets"
+            ],
+            "styles": [
+              "projects/e2-router/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/e2-router/tsconfig.app.json",
+              "projects/e2-router/tsconfig.spec.json",
+              "projects/e2-router/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/e2-router/e2e/protractor.conf.js",
+            "devServerTarget": "e2-router:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "e2-router:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "e1-hello"
