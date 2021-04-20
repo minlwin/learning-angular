@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './fader.component.html',
+  styleUrls: ['./fader.component.css'],
   animations: [
     trigger('fadeIn', [
       transition('* <=> *', [

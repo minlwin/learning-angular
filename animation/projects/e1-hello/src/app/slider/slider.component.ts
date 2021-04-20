@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.css'],
   animations: [
     trigger('slideIn', [
       transition('* <=> *', [
