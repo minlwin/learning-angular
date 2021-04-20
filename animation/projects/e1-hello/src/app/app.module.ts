@@ -5,10 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FaderComponent } from './fader/fader.component';
 import { HelloComponent } from './hello/hello.component';
+import { InDeCrementsComponent } from './in-de-crements/in-de-crements.component';
 import { ListEnterComponent } from './list-enter/list-enter.component';
 import { SliderComponent } from './slider/slider.component';
 
 const routes: Routes = [
+  { path: 'in-de', component: InDeCrementsComponent },
   { path: 'list', component: ListEnterComponent },
   { path: 'fadein', component: FaderComponent },
   { path: 'slider', component: SliderComponent },
@@ -23,6 +25,7 @@ const routes: Routes = [
     SliderComponent,
     FaderComponent,
     ListEnterComponent,
+    InDeCrementsComponent,
   ],
   imports: [
     BrowserModule,

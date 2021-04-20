@@ -13,11 +13,11 @@ export const btnAnimation = trigger('btnAnimation', [
 export const listAnimation = trigger('listAnimation', [
     transition('* => *', [
         query(':enter', [
-            style({ opacity: 0 }),
-            stagger(200, animate('600ms ease-in', style({ opacity: 1 })))
+            style({ opacity: 0, width: 0 }),
+            stagger(300, animate('300ms ease-out', style({ opacity: 1, width: '*' })))
         ], { optional: true }),
         query(':leave', [
-            animate('10ms ease-out', style({ opacity: 0 }))
+            animate('300ms ease-in', style({ opacity: 0, height: 0 }))
         ], { optional: true }),
     ])
 ])
