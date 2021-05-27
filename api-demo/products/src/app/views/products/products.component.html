@@ -1,0 +1,72 @@
+<h1 class="flex items-center">
+    <span class="mr-2">
+        <icon-gift></icon-gift>
+    </span> Product Management
+</h1>
+
+<form [formGroup]="searchForm" class="search-bar form">
+
+    <div>
+        <select formControlName="category" class="mr-2 inline-block w-60">
+            <option value="">Search Category</option>
+            <option *ngFor="let item of categories" [value]="item.objectId">{{item.name}}</option>
+        </select>
+        <input formControlName="name" type="text" placeholder="Search Name" class="mr-2 w-64">
+        <input type="number" formControlName="from" class="mr-2" placeholder="Price From">
+        <input type="number" formControlName="to" class="mr-4" placeholder="Price To">
+
+        <button (click)="search()">Search</button>
+    </div>
+
+    <div>
+        <button (click)="uploadFile.click()" class="mr-2">Upload</button>
+        <button (click)="addNew()">Add New</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-left">Name</th>
+            <th class="text-left">Category</th>
+            <th class="text-right">Price</th>
+            <th>Deleted</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of list; odd as o" [class.odd]="o">
+            <td>{{item.name}}</td>
+            <td>{{item.category?.name}}</td>
+            <td class="text-right">{{item.price}}</td>
+            <td class="text-center">{{item.deleted}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal-dialog [title]="editForm.value.objectId ? 'Edit Product' : 'Add New Product'" (onDone)="save($event)">
+    <form class="form w-96" [formGroup]="editForm">
+
+        <div class="form-group mb-2">
+            <label>Name</label>
+            <input formControlName="name" type="text" placeholder="Enter Product Name">
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Category</label>
+            <select formControlName="category">
+                <option value="">Select Category</option>
+                <option *ngFor="let item of categories" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input formControlName="price" type="number" placeholder="Enter Price">
+        </div>
+
+    </form>
+</app-modal-dialog>
+
+<form class="hidden">
+    <input type="file" #uploadFile (change)="upload($event)">
+</form>

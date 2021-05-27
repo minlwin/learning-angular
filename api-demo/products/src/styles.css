@@ -1,0 +1,81 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+
+@layer components {
+
+    .navbar {
+        @apply bg-primary text-black hover:shadow-lg
+    }
+
+    .navbar nav {
+        @apply container mx-auto flex items-center justify-between
+    }
+
+    .navbar .navbar-brand {
+        @apply text-2xl font-bold text-white
+    }
+
+    .navbar .menu {
+        @apply flex
+    }
+
+    .navbar .menu > a{
+        @apply block p-4 hover:bg-primary-dark hover:text-white
+    }
+
+    .navbar .menu > a.active{
+        @apply font-bold text-white
+    }
+
+    .content {
+        @apply mx-auto container pt-4
+    }
+
+    .content > * > h1 {
+        @apply text-2xl text-primary-dark font-bold
+    }
+
+    .search-bar {
+        @apply my-6 flex justify-between
+    }
+
+    button {
+        @apply px-4 py-2 border border-primary-dark hover:bg-primary-dark hover:text-white hover:shadow rounded
+    }
+
+    .form input, 
+    .form select, 
+    .form textarea {
+        @apply px-4 py-2 border  border-primary rounded
+    }
+    
+    .form .form-group input, 
+    .form .form-group select, 
+    .form .form-group textarea {
+        @apply block w-full rounded px-4 py-2 border  border-primary
+    }
+
+    .table {
+        @apply w-full
+    }
+
+    .table td, .table th {
+        @apply p-2
+    }
+
+    .table thead tr {
+        @apply bg-primary-light border-b-2 border-primary-dark
+    }
+
+    .table tbody tr {
+        @apply hover:bg-primary hover:text-white
+    }
+
+    .table tbody .odd {
+        @apply bg-primary-light
+    }
+}

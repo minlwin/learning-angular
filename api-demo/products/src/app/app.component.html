@@ -1,0 +1,14 @@
+<div class="navbar">
+  <nav>
+    <h1 class="navbar-brand">Products</h1>
+
+    <div class="menu">
+      <a [routerLink]="['/product']" routerLinkActive="active">Products</a>
+      <a [routerLink]="['/category']" routerLinkActive="active">Categories</a>
+    </div>
+  </nav>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

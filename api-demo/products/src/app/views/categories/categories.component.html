@@ -1,0 +1,34 @@
+<h1 class="flex items-center">
+    <span class="mr-2">
+        <icon-tag></icon-tag>
+    </span> Category Management
+</h1>
+
+<form [formGroup]="searchForm" class="search-bar">
+
+    <div>
+        <input formControlName="name" type="text" placeholder="Search Name" class="mr-2 w-64">
+        <button (click)="search()">Search</button>
+    </div>
+
+    <button (click)="addNew()">Add New</button>
+</form>
+
+<div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4">
+    <div class="border rounded border-primary p-4 flex items-center justify-between" *ngFor="let item of list">
+        <span>{{item.name}}</span>
+        <span (click)="edit(item)" class="cursor-pointer hover:shadow">
+            <icon-edit></icon-edit>
+        </span>
+    </div>
+
+</div>
+
+<app-modal-dialog (onDone)="save($event)" [title]="editForm.value.objectId ? 'Edit Category' : 'Create Category'">
+    <form [formGroup]="editForm" class="form w-96">
+        <div class="form-group">
+            <label>Name</label>
+            <input formControlName="name" type="text" placeholder="Enter Name">
+        </div>
+    </form>
+</app-modal-dialog>
