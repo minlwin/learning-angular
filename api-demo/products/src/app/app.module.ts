@@ -10,6 +10,7 @@ import { IconTagComponent } from './commons/icons/icon-tag/icon-tag.component';
 import { ModalDialogComponent } from './commons/widgets/modal-dialog/modal-dialog.component';
 import { ParseApiInterceptor } from './models/interceptor/apikey.interceptor';
 import { CategoriesComponent } from './views/categories/categories.component';
+import { ProductDetailsComponent } from './views/products/product-details/product-details.component';
 import { ProductsComponent } from './views/products/products.component';
 
 
@@ -22,6 +23,7 @@ import { ProductsComponent } from './views/products/products.component';
     IconEditComponent,
     IconTagComponent,
     IconGiftComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
